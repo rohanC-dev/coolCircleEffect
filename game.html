@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AimBoost</title>
+	<script type="text/javascript" src = "paper-full.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/paperscript" canvas="myCanvas">
+		var targets = [];
+		setInterval(function(){
+			var circle = new Path.Circle((new Point(view.size.width, view.size.height))*(Point.random()), 40);
+			circle.fillColor = "blue";
+			targets.push(circle);
+		}, 1000);
+
+		function onFrame(e){
+			for(var i = 0; i < targets.length; i++){
+				targets[i].fillColor.hue += 1;
+				targets[i].scale(1.1);
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<canvas id="myCanvas" resize></canvas>
+</body>
+</html>
